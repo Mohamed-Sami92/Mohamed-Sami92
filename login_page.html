@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 50px;
+            text-align: center;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        .logout-button {
+            padding: 10px 20px;
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .logout-button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <input type="submit" value="Login">
+        </form>
+        <div id="callButtonContainer" style="display:none;">
+            <h2>Call Us</h2>
+            <button onclick="callUs()">Make a WebRTC Call</button>
+            <button class="logout-button" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            // Simulate login and show call button
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('callButtonContainer').style.display = 'block';
+        });
+
+        function callUs() {
+            window.open('https://motech.ras.yeastar.com/webtrunk/calllink?code=Z05JVG5LWmhQWlR3ZmN3VWE4NVh5djNJUkRjdjd6TUM=', '_MoTech');
+        }
+
+        function logout() {
+            // Simulate logout by refreshing or redirecting back to login
+            document.getElementById('callButtonContainer').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('loginForm').reset();
+        }
+    </script>
+
+</body>
+</html>
